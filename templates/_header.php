@@ -1,34 +1,32 @@
 <template id="header">
-        <header>      
-            <div class="container-fluid top-nav">
-                <div class="container">
-                <div class="row">
-                <nav class="nav">
-                    <router-link class="nav-link" v-bind:to="{path:'/'}" >Home</router-link>
-                    <router-link class="nav-link" v-bind:to="{path:'/blog/',name:'blog'}" >Blog</router-link>
-                    <router-link class="nav-link" 
-                        v-for="(page, key, index) in pages" 
-                        v-bind:to="{ name: 'page', params: { slug: page.slug }}"
+        <header>
+          <b-navbar toggleable="lg" type="dark" fixed="top">
+            <div class="container top-nav">
+              <b-navbar-brand v-bind:to="{path:'/'}"><img src="<?php echo get_template_directory_uri(); ?>/img/logo-w.svg" :alt="this.$root.bloginfo.name" width="112" height="60" /> </b-navbar-brand>
+              <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+
+              <b-collapse is-nav id="nav_collapse">
+                <b-nav-text class="mr-3">
+                  <em>{{this.$root.bloginfo.description}}</em>
+                </b-nav-text>
+
+                <b-navbar-nav class="mr-auto">
+                  <!-- <b-nav-item v-bind:to="{path:'/page/about',name:'page'}">About</b-nav-item>
+                  <b-nav-item v-bind:to="{path:'/blog/',name:'blog'}">Blog</b-nav-item> -->
+                  <b-nav-item
+                        v-for="(page, key, index) in pages"
+                        v-bind:to="{ name: 'page', params: { slug: page.object_slug }}"
                         v-bind:key="key">
-                            {{page.title.rendered}}
-                    </router-link>
-                </nav>
+                            {{page.title}}
+                    </b-nav-item>
+                </b-navbar-nav>
+
+                <div class="form-inline my-2 my-lg-0">
+                  <search-form></search-form>
                 </div>
-                </div>
+
+              </b-collapse>
             </div>
-            <div class="container-fluid main-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <router-link class="blogname" to="/">{{this.$root.bloginfo.name}}</router-link>
-                            <p>{{this.$root.bloginfo.description}}</p>
-                        </div>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-2 search-wrapper">
-                            <search-form></search-form>
-                        </div>
-                    </div> 
-                </div>
-            </div>             
+          </b-navbar>
         </header>
 </template>

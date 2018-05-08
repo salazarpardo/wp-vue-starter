@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * THIS IS TO UPDATE THE POST / PAGE PREVIEW
@@ -7,8 +7,8 @@
 
 //change preview post links - to match wpvue route
 function new_preview_link() {
-  $slug = basename(get_the_ID()); 
-  $mydir = '/preview/'; 
+  $slug = basename(get_the_ID());
+  $mydir = '/preview/';
   $mynewpurl = "$mydir$slug";
   return "$mynewpurl";
 }
@@ -17,19 +17,19 @@ add_filter( 'preview_post_link', 'new_preview_link' );
 //adding custom route for preview
 add_action( 'rest_api_init', 'my_custom_endpoints' );
 
-function my_custom_endpoints() { 
+function my_custom_endpoints() {
 	register_rest_route( 'wpvue', '/preview', array(
         'methods' => 'GET',
         'callback' => 'post_preview_callback',
     ));
 }
 
-function post_preview_callback( $request_data ) { 
+function post_preview_callback( $request_data ) {
     // endpoint looks like: /wp-json/wpvue/preview?id=98
     $parameters = $request_data->get_params();
     $preview = wp_get_post_autosave($parameters[id]);
 
-    $url = get_bloginfo('url').'/wp-json/wp/v2/posts?id='. $parameters[id]; 
+    $url = get_bloginfo('url').'/wp-json/wp/v2/posts?id='. $parameters[id];
     $ch = curl_init();
     curl_setopt($ch,CURLOPT_URL, $url);
     curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
@@ -37,34 +37,34 @@ function post_preview_callback( $request_data ) {
 
     $postarray = json_decode($result);
 
-    if(count($postarray) > 0){     
+    if(count($postarray) > 0){
       $postarray[0]->title->rendered =  $preview->post_title;
-      $postarray[0]->content->rendered = $preview->post_content;  
+      $postarray[0]->content->rendered = $preview->post_content;
     }else{
-      throw new Exception('No record found'); 
+      throw new Exception('No record found');
     }
     return $postarray;
 }
 
 /**
  * END POST / PAGE PREVIEW
- * 
+ *
 */
 
 
 /**
  * CHANGES URL PREFIX
- * TO MATCH OUR VUE ROUTE 
- * SO A PAGE WILL LOOK LIKE 
+ * TO MATCH OUR VUE ROUTE
+ * SO A PAGE WILL LOOK LIKE
  * /post/post-name/
  * /page/page-name/
- * https://stackoverflow.com/questions/17613789/wordpress-rewrite-add-base-prefix-to-pages-only * 
- * 
+ * https://stackoverflow.com/questions/17613789/wordpress-rewrite-add-base-prefix-to-pages-only *
+ *
  */
 
 function change_base_permalinks() {
   global $wp_rewrite;
- 
+
   // $wp_rewrite->permalink_structure = 'post/%postname%/';
   $wp_rewrite->page_structure = 'page/%pagename%';
   // $wp_rewrite->extra_permastructs['category']['struct'] = 'category/%category%';
@@ -80,11 +80,11 @@ add_action('init','change_base_permalinks');
 
 
 function prepare_rest($data,$post,$request){
-  
-  
+
+
   $_data = $data->data;
 
-  
+
   //Categories
   $cats = get_the_category($post->ID);
   $_data['cats'] = $cats;
@@ -97,7 +97,7 @@ function prepare_rest($data,$post,$request){
 }
 add_filter('rest_prepare_post', 'prepare_rest', 10,3);
 
-//ADDS FILTER TO QUERY PARAMETER 
+//ADDS FILTER TO QUERY PARAMETER
 
 add_action( 'rest_api_init', 'rest_api_filter_add_filters' );
 
@@ -146,5 +146,7 @@ function allow_anonymous_comments() {
   return true;
 }
 add_filter('rest_allow_anonymous_comments','allow_anonymous_comments');
+
+add_theme_support( 'post-thumbnails', array( 'post', 'page' ) );
 
 ?>

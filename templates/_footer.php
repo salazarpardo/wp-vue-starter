@@ -1,6 +1,5 @@
 <template id="footer">
-<footer class="container-fluid">
-    <p>WP + VueJS  <a href="#">Starter Theme</a></p>
-</footer>
+  <footer class="container-fluid">
+     Banca de Inversión Sostenible © <?php echo date("Y"); ?>
+  </footer>
 </template>
- 

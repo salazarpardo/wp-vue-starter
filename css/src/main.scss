@@ -1,15 +1,57 @@
-$light-grey : #ebebeb;
-$med-grey : #a8a8a8;
-$primary-color: #000;
+// Required
+@import "functions";
+@import "variables";
+@import "mixins";
+
+// Optional
+@import "root";
+@import "reboot";
+@import "type";
+@import "images";
+@import "code";
+@import "grid";
+@import "tables";
+@import "forms";
+@import "buttons";
+@import "transitions";
+@import "dropdown";
+@import "button-group";
+@import "input-group";
+@import "custom-forms";
+@import "nav";
+@import "navbar";
+@import "card";
+@import "breadcrumb";
+@import "pagination";
+@import "badge";
+@import "jumbotron";
+@import "alert";
+@import "progress";
+@import "media";
+@import "list-group";
+@import "close";
+@import "modal";
+@import "tooltip";
+@import "popover";
+@import "carousel";
+@import "utilities";
+@import "print";
+
+// @import "node_modules/bootstrap/scss/bootstrap";
 
 @import 'jumbotron';
+@import 'loading';
 @import 'header';
 @import 'sidebar';
 @import 'comments';
 @import 'footer';
 
+.inner {
+    padding-top: 120px;
+}
 .latest-title {
     margin-bottom:25px;
+    font-style: italic;
 }
 .latest-title span{
     font-style:italic;
@@ -25,7 +67,7 @@ $primary-color: #000;
     justify-content: center;
 }
 
-.single h1.post-title, 
+.single h1.post-title,
 .single h2.comments-title{
     margin-bottom:25px;
     font-weight: 100;
@@ -41,14 +83,14 @@ $primary-color: #000;
 }
 .the-loop .title {
     font-size:24px;
-    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .meta {
     margin-bottom:5px;
 }
-.meta, 
+.meta,
 .meta a {
-    color: $med-grey;
+    color: $gray-500;
 }
 .fade-in-enter-active {
     transition: all .6s ease;
@@ -57,13 +99,13 @@ $primary-color: #000;
 transition: all .1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 .fade-in-enter, .fade-in-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ { 
+/* .slide-fade-leave-active below version 2.1.8 */ {
 opacity: 0;
 }
 .content {
     margin-bottom: 35px;
 }
-.content-area img, 
+.content-area img,
 .content img {
     max-width:100%;
     margin-top:5px;
