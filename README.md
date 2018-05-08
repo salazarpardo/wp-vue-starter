@@ -9,7 +9,7 @@ More information can be found in this post: http://michaelsoriano.com/wordpress-
 - vuejs
 - vue-router
 - axios
-- bootstrap 4 (css) 
+- bootstrap 4 (css)
 
 
 ## EDIT CSS DIRECTLY
@@ -29,6 +29,13 @@ More information can be found in this post: http://michaelsoriano.com/wordpress-
 ## TO EDIT THE JAVASCRIPT
 
 - open /js/main.js
+
+## COPY RESOURCES TO THEME
+
+- gulp js
+- gulp css 'or'
+
+- gulp
 
 ## ROADMAP
 
