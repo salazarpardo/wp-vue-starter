@@ -20,11 +20,12 @@ gulp.task('css', function () {
 
 gulp.task('js', function () {
   gulp.src([
+    './node_modules/qs/dist/qs.js',
     './node_modules/axios/dist/axios.min.js',
     './node_modules/vue/dist/vue.min.js',
     './node_modules/vue-router/dist/vue-router.min.js',
     './node_modules/babel-polyfill/dist/polyfill.min.js',
-    './node_modules/bootstrap-vue/dist/bootstrap-vue.js',
+    './node_modules/bootstrap-vue/dist/bootstrap-vue.min.js',
   ])
   .pipe(gulp.dest('./js/dist'))
 });

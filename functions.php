@@ -145,8 +145,11 @@ function rest_api_filter_add_filter_param( $args, $request ) {
 function allow_anonymous_comments() {
   return true;
 }
+
 add_filter('rest_allow_anonymous_comments','allow_anonymous_comments');
 
 add_theme_support( 'post-thumbnails', array( 'post', 'page' ) );
+
+add_theme_support( 'menus' );
 
 ?>

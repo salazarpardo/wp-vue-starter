@@ -2,7 +2,7 @@
         <header>
           <b-navbar toggleable="lg" type="dark" fixed="top">
             <div class="container top-nav">
-              <b-navbar-brand v-bind:to="{path:'/'}"><img src="<?php echo get_template_directory_uri(); ?>/img/logo-w.svg" :alt="this.$root.bloginfo.name" width="112" height="60" /> </b-navbar-brand>
+              <b-navbar-brand v-bind:to="{path:'/'}"><img src="<?php echo get_template_directory_uri(); ?>/img/logo-w.svg" :alt="this.$root.bloginfo.name" width="140" height="50" /> </b-navbar-brand>
               <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
               <b-collapse is-nav id="nav_collapse">
@@ -22,7 +22,7 @@
                 </b-navbar-nav>
 
                 <div class="form-inline my-2 my-lg-0">
-                  <search-form></search-form>
+                  <search-form  v-bind:searchTerm="searchTerm" ></search-form>
                 </div>
 
               </b-collapse>

@@ -34,7 +34,7 @@ Vue.component('header-component',{
     },
     mounted : function(){
         var _this = this;
-        axios.get('/wp-json/wp-api-menus/v2/menus/2')
+        axios.get('/wp-json/wp-api-menus/v2/menus/9')
             .then(function (response) {
                 _this.pages = response.data.items;
             })
@@ -250,7 +250,7 @@ const app = new Vue({
       "post" : {},
       "pagers" : [],
       "loading" : false,
-      "searchTerm" : "",
+      "searchTerm" : ""
     },
     created : function(){
         this.getBloginfo();

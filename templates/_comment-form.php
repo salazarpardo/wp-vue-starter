@@ -1,10 +1,10 @@
 <template id="comment-form">
     <div class="comment-form-wrap" v-cloak>
-        <h3>Deja un comentario</h3>
+        <h3>Escribe tu solución</h3>
 
 
         <div v-if="submitted" class="alert alert-success" role="alert">
-            Gracias, tu comentario se ha enviado correctamente.
+            Gracias, tu solución se ha enviado correctamente.
         </div>
 
         <div v-if="!submitted">
@@ -24,11 +24,11 @@
                 <div class="invalid-feedback">Se requiere un correo valido</div>
             </div>
             <div class="form-group">
-                <label for="website">Sitio web <i>(opcional)</i></label>
+                <label for="website">Empresa <i>(opcional)</i></label>
                 <input v-model="website" class="form-control">
             </div>
             <div class="form-group">
-                <label for="content">Comentario</label>
+                <label for="content">Solución al reto</label>
                 <textarea
                     v-model="content"
                     v-bind:class="{'form-control':true, 'is-invalid' : content == '' && contentBlured}"

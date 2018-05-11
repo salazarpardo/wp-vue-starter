@@ -1,14 +1,11 @@
-
-.top-nav {
-}
 .main-header {
     border-bottom:1px solid $gray-200;
     margin-bottom:35px;
     padding-top:45px;
     padding-bottom:35px;
-}
-.home .main-header {
-    margin-bottom:0;
+    .home & {
+      margin-bottom:0;
+    }
 }
 .admin-bar .fixed-top {
   top: 45px;
@@ -16,9 +13,20 @@
     top: 32px;
   }
 }
-.navbar.fixed-top {
-  background-image: linear-gradient(to right, rgba(darken(#1C716C, 5), .95), rgba(darken(#2DAB51, 5), .95), rgba(darken(#52B100, 5), .95) );
-  box-shadow: 0 1px 0 lighten($primary, 5), 0 2px 0 darken($primary, 5);
+.navbar {
+  &.fixed-top {
+    background-color: rgba($dark-blue, 0.9);
+    box-shadow: 0 1px 0 lighten($primary, 5), 0 2px 0 darken($primary, 5);
+  }
+  .form-control {
+    border: 1px solid $dark-blue;
+  }
+  .navbar-text {
+    font-size: 13px;
+  }
+  .nav-link {
+    font-size: 15px;
+  }
 }
 .navbar-dark .navbar-toggler {
   border-color: transparent;

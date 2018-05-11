@@ -1,16 +1,16 @@
 <template id="home">
 
   <div class="home">
-      <div class="jumbotron jumbotron-fluid bg-gradient">
+      <div class="jumbotron jumbotron-fluid">
         <div class="jumbotron-bg"></div>
         <div class="container-fluid">
           <div class="row justify-content-center">
              <div class="col-lg-8">
-               <h1>Acelerando negocios verdes en la Alianza del Pacífico</h1>
+               <h1>Acelerando Negocios Verdes en la Alianza del Pacífico</h1>
                <p class="lead d-none d-md-block">Bienvenido a la Banca de Inversión Sostenible.</p>
                <hr class="my-4  d-none d-md-block">
                <p class="lead">
-                 <router-link class="btn btn-primary btn-lg" v-bind:to="{name:'page', params: { slug: 'about' }}">Ver más</router-link>
+                 <router-link class="btn btn-primary btn-lg" v-bind:to="{name:'page', params: { slug: 'nosotros' }}">Ver más</router-link>
                  <!-- <a class="btn btn-primary btn-lg" v-bind:to="{path:'/page/about/',name:'about'}" role="button">Learn more</a> -->
                </p>
              </div>
@@ -21,7 +21,7 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 col-md-9">
-            <h4 class="text-center text-primary mb-5">La primera Banca de Inversión enfocada en apoyar emprendimientos con triple cuenta de resultados</h4>
+            <h4 class="lead primary text-center">La primera Banca de Inversión enfocada en apoyar emprendimientos con triple cuenta de resultados</h4>
 
             <div class="text-center">
               <figure class="figure text-center p-4">
@@ -45,7 +45,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-8">
             <h5 class="latest-title"><router-link v-bind:to="{path:'/blog/',name:'blog'}" >Últimas noticias</router-link></h5>
-            <the-loop v-bind:posts="posts" v-bind:pagers="pagers"></the-loop>
+            <the-loop v-bind:posts="posts" v-bind:pagers="pagers" v-bind:loading="loading"></the-loop>
           </div>
         </div>
       </div>

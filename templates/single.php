@@ -8,15 +8,12 @@
         </div>
       </div>
       <div class="loaded" v-else>
-        <div class="container-fluid" v-if="post[0] && post[0].better_featured_image">
-          <div class="justify-content-center text-center">
-            <img class="img-fluid mb-3" :src="post[0].better_featured_image.source_url" :alt="post[0].title.rendered" />
-          </div>
-
+        <div class="justify-content-center text-center" v-if="post[0] && post[0].better_featured_image">
+          <img class="img-fluid col-md-9 col-lg-8 mb-5" :src="post[0].better_featured_image.source_url" :alt="post[0].title.rendered" />
         </div>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8 content-area">
+                <div class="col-md-9 col-lg-8 content-area">
                     <div v-if="post[0]">
                         <h1 class="post-title">{{post[0].title.rendered}}</h1>
                         <div class="meta clearfix">
@@ -30,7 +27,7 @@
                         </div>
                         <div class="content" v-html="post[0].content.rendered"></div>
                         <comments v-if="post[0].comment_status != 'closed'" v-bind:comments="comments"></comments>
-                        <comment-formv-if="post[0].comment_status != 'closed'"></comment-form>
+                        <comment-form v-if="post[0].comment_status != 'closed'"></comment-form>
                     </div><!--end v-if-->
                     <div v-else>
                         <nopost></nopost>

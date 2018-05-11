@@ -15,7 +15,7 @@
         <meta name="theme-color" content="#ffffff">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-        
+
         <link rel="stylesheet" href="https://use.typekit.net/wgs1hhe.css">
         <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/dist/main.css" />
         <?php wp_head(); ?>
@@ -29,7 +29,8 @@
               v-bind:post="post"
               v-bind:comments="comments"
               v-bind:pagers="pagers"
-              v-bind:loading="loading">
+              v-bind:loading="loading"
+              v-bind:searchTerm="searchTerm">
             </router-view>
         </transition>
         <footer-component></footer-component>
@@ -49,11 +50,23 @@
       <?php get_template_part('/templates/_comment-form'); ?>
       <?php get_template_part('/templates/_nopost'); ?>
       <?php get_template_part('/templates/_loading'); ?>
+
+      <!-- Development scripts with npm
+
+      <script src="<?php echo get_template_directory_uri(); ?>/node_modules/axios/dist/axios.js"></script>
+      <script src="<?php echo get_template_directory_uri(); ?>/node_modules/vue/dist/vue.js"></script>
+      <script src="<?php echo get_template_directory_uri(); ?>/node_modules/vue-router/dist/vue-router.js"></script>
+      <script src="<?php echo get_template_directory_uri(); ?>/node_modules/babel-polyfill/dist/polyfill.js"></script>
+      <script src="<?php echo get_template_directory_uri(); ?>/node_modules/bootstrap-vue/dist/bootstrap-vue.js"></script>
+
+      -->
+
       <script src="<?php echo get_template_directory_uri(); ?>/js/dist/axios.min.js"></script>
       <script src="<?php echo get_template_directory_uri(); ?>/js/dist/vue.min.js"></script>
       <script src="<?php echo get_template_directory_uri(); ?>/js/dist/vue-router.min.js"></script>
       <script src="<?php echo get_template_directory_uri(); ?>/js/dist/polyfill.min.js"></script>
-      <script src="<?php echo get_template_directory_uri(); ?>/js/dist/bootstrap-vue.js"></script>
+      <script src="<?php echo get_template_directory_uri(); ?>/js/dist/bootstrap-vue.min.js"></script>
+
       <script src="<?php echo get_template_directory_uri(); ?>/js/main.js"></script>
       <?php wp_footer(); ?>
     </body>
