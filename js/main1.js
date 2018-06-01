@@ -1,4 +1,4 @@
-Vue.config.devtools = true;
+Vue.config.devtools = false;
 
 Vue.prototype.$http = axios;
 //partial components
@@ -13,7 +13,22 @@ Vue.component('sidebar',{
 })
 
 Vue.component('footer-component',{
-    template : "#footer"
+    template : "#footer",
+    data : function(){
+        return {
+            pages : [],
+        }
+    },
+    mounted : function(){
+        var _this = this;
+        axios.get('/wp-json/wp-api-menus/v2/menus/9')
+            .then(function (response) {
+                _this.pages = response.data.items;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
 })
 
 Vue.component('nopost',{
@@ -99,10 +114,11 @@ Vue.component('comment-form',{
               params.append('author_name', _this.commenter);
               params.append('author_email', _this.email);
               params.append('content', _this.content);
-              params.append('author_url', _this.website);
+              // params.append('author_url', _this.website);
               params.append('post',_this.$parent.post[0].id);
               axios.post('/wp-json/wp/v2/comments', params
              ).then(function (response) {
+               console.log(response);
                 _this.submitted = true;
               })
               .catch(function (error) {

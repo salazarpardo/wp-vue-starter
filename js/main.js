@@ -13,7 +13,22 @@ Vue.component('sidebar',{
 })
 
 Vue.component('footer-component',{
-    template : "#footer"
+    template : "#footer",
+    data : function(){
+        return {
+            pages : [],
+        }
+    },
+    mounted : function(){
+        var _this = this;
+        axios.get('/wp-json/wp-api-menus/v2/menus/2')
+            .then(function (response) {
+                _this.pages = response.data.items;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
 })
 
 Vue.component('nopost',{

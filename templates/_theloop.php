@@ -16,7 +16,7 @@
                 <img class="img-fluid mb-3" :src="post.better_featured_image.source_url" :alt="post.title.rendered" />
               </router-link>
               <h3 class="title">
-                  <router-link v-bind:to="{ name: 'post', params: { slug: post.slug }}">
+                  <router-link class="text-dark" v-bind:to="{ name: 'post', params: { slug: post.slug }}">
                       {{post.title.rendered}}
                   </router-link>
               </h3>
@@ -30,7 +30,7 @@
                  <span class="float-right" v-if="post.acf.start_time">{{post.acf.start_time}}</span>
               </div>
               <div class="excerpt" v-html="post.excerpt.rendered"></div>
-              <p class="mb-5">
+              <p class="mb-2">
                 <em>
                   <router-link v-bind:to="{ name: 'post', params: { slug: post.slug }}">
                     » Ver más

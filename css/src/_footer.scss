@@ -1,8 +1,38 @@
-footer {
-    background:$gray-100;
-    padding-top:75px;
-    padding-bottom:60px;
-    margin-top: 45px;
-    text-align:center;
+.footer {
+    background:$primary;
+    border-top: 1px solid $dark-green;
+    color: $white;
+    padding-top:48px;
+    padding-bottom:48px;
     border-top:1px solid $gray-200;
+    font-size: 12px;
+    .footer-menu {
+      flex-direction: column;
+      @include media-breakpoint-up(md) {
+        flex-direction: initial;
+      }
+    }
+    .menu-title {
+      font-size: inherit;
+      @include media-breakpoint-up(md) {
+        font-size: 16px;
+      }
+    }
+    .nav-link {
+      color: inherit;
+      padding: 4px 0;
+      font-size: inherit;
+      @include media-breakpoint-up(md) {
+        padding-right: 8px ;
+      }
+    }
+    .social{
+      .nav-link {
+        padding: 4px;
+      }
+    }
+    .copyright {
+      margin-top: 40px;
+      font-size: inherit;
+    }
 }
